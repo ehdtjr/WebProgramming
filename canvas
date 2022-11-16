@@ -9,6 +9,7 @@
     <input type="button" value="세모" onclick="triangle();" />
     <input type="button" value="네모" onclick="square();" />
     <input type="button" value="동그라미" onclick="circle();" />
+    <input type="range" min="0" max="100" id="size">
   </body>
 </html>
 
@@ -56,18 +57,24 @@ function square() {
 }
 
 function circle() {
-  var canvas = document.getElementById("canvas");
-  if (canvas.getContext) {
-    var ctx = canvas.getContext("2d");
-    ctx.clearRect(0, 0, canvas.clientWidth, canvas.height);
-    ctx.beginPath();
-    canvas.onclick = function (event) {
-      const x = event.clientX - ctx.canvas.offsetLeft;
-      const y = event.clientY - ctx.canvas.offsetTop;
+    var canvas = document.getElementById("canvas");
+    var z = document.getElementById("size");
+    z.addEventListener("click",shapesize);
+    if (canvas.getContext) {
+      var ctx = canvas.getContext("2d");
+      ctx.clearRect(0, 0, canvas.clientWidth, canvas.height);
       ctx.beginPath();
-      ctx.strokeStyle = "black";
-      ctx.arc(x, y, z, 0, Math.PI * 2, false);
-      ctx.stroke();
-    };
+      canvas.onclick = function (event) {
+        const x = event.clientX - ctx.canvas.offsetLeft;
+        const y = event.clientY - ctx.canvas.offsetTop;
+        ctx.beginPath();
+        ctx.strokeStyle = "black";
+        ctx.arc(x, y, 15, 0, Math.PI * 2, false);
+        ctx.stroke();
+      };
+    }
   }
-}
+  function shapesize(event)
+  {
+    
+  }
