@@ -26,14 +26,15 @@ function triangle() {
 
       ctx.strokeStyle = "black";
 
-      ctx.moveTo(x, y - 15);
-      ctx.lineTo(x - 15, y + 15);
-      ctx.lineTo(x + 15, y + 15);
-      ctx.lineTo(x, y - 15);
+      ctx.moveTo(x, y - 30);
+      ctx.lineTo(x - 30, y + 30);
+      ctx.lineTo(x + 30, y + 30);
+      ctx.lineTo(x, y - 30);
       ctx.stroke();
     };
   }
 }
+
 function square() {
   var canvas = document.getElementById("canvas");
   if (canvas.getContext) {
@@ -46,35 +47,30 @@ function square() {
 
       ctx.strokeStyle = "black";
 
-      ctx.moveTo(x - 15, y - 15);
-      ctx.lineTo(x + 15, y - 15);
-      ctx.lineTo(x + 15, y + 15);
-      ctx.lineTo(x - 15, y + 15);
-      ctx.lineTo(x - 15, y - 15);
+      ctx.moveTo(x - 30, y - 30);
+      ctx.lineTo(x + 30, y - 30);
+      ctx.lineTo(x + 30, y + 30);
+      ctx.lineTo(x - 30, y + 30);
+      ctx.lineTo(x - 30, y - 30);
       ctx.stroke();
     };
   }
 }
 
 function circle() {
-    var canvas = document.getElementById("canvas");
-    var z = document.getElementById("size");
-    z.addEventListener("click",shapesize);
-    if (canvas.getContext) {
-      var ctx = canvas.getContext("2d");
-      ctx.clearRect(0, 0, canvas.clientWidth, canvas.height);
+  var canvas = document.getElementById("canvas");
+  if (canvas.getContext) {
+    var ctx = canvas.getContext("2d");
+    ctx.clearRect(0, 0, canvas.clientWidth, canvas.height);
+    ctx.beginPath();
+    canvas.onclick = function (event) {
+      const x = event.clientX - ctx.canvas.offsetLeft;
+      const y = event.clientY - ctx.canvas.offsetTop;
       ctx.beginPath();
-      canvas.onclick = function (event) {
-        const x = event.clientX - ctx.canvas.offsetLeft;
-        const y = event.clientY - ctx.canvas.offsetTop;
-        ctx.beginPath();
-        ctx.strokeStyle = "black";
-        ctx.arc(x, y, 15, 0, Math.PI * 2, false);
-        ctx.stroke();
-      };
-    }
+      ctx.strokeStyle = "black";
+      ctx.arc(x, y, 30, 0, Math.PI * 2, false);
+      ctx.stroke();
+    };
   }
-  function shapesize(event)
-  {
-    
-  }
+}
+
