@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>TEXT 박스</title>
+    <script src="test.js"></script>
+  </head>
+
+  <body>
+    <form>
+      <div id="box">
+        <input type="button" value="Text" onclick="add_textbox()" />
+      </div>
+    </form>
+  </body>
+</html>
+
+//test.js
+const add_textbox = () => {
+  const box = document.getElementById("box");
+  const newP = document.createElement("p");
+  newP.innerHTML =
+    "<textarea wrap='hard'  cols='50' rows='30'> </textarea> <input type='button' value='삭제' onclick='remove(this)'>";
+  box.appendChild(newP);
+};
+const remove = (obj) => {
+  document.getElementById("box").removeChild(obj.parentNode);
+};
