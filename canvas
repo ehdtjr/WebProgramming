@@ -5,7 +5,7 @@
   </head>
   <body>
     <canvas id="canvas" width="200" height="200"></canvas>
-    <script src="test.js"></script>
+    <script src="main.js"></script>
     <input type="button" value="세모" onclick="triangle();" />
     <input type="button" value="네모" onclick="square();" />
     <input type="button" value="동그라미" onclick="circle();" />
